@@ -3,7 +3,7 @@ const RestaurantMenu = (props) => {
 
     const [menus, getMenu] = useState([]);
     useEffect(() => {
-        fetchMenus()
+        fetchMenus(props.restaurantId)
     }, []);
 
     const fetchMenus = (id) => {
