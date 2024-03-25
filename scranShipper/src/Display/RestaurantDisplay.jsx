@@ -1,13 +1,13 @@
-function RestaurantDisplay(){
+function RestaurantDisplay(props){
     const makeRestaurant = (restaurant) => {
         return (<>
-        <button onClick={}> {restaurant.name} </button>
+        <button> {restaurant.name} </button>
         </>)
     }
 
     return (
         <>
-            {restaurants.map(makeRestaurant)
+            {props.restaurantList.map(makeRestaurant)
             }
         </>
     )
