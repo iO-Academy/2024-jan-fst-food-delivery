@@ -1,14 +1,13 @@
 function RestaurantDisplay(props){
     const makeRestaurant = (restaurant) => {
-        return (<>
+        return (
         <button> {restaurant.name} </button>
-        </>)
+        )
     }
 
     return (
         <>
-            {props.restaurantList.map(makeRestaurant)
-            }
+            {props.restaurantList.map(makeRestaurant)}
         </>
     )
 }
