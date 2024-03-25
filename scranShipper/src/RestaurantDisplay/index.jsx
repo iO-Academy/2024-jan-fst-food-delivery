@@ -1,3 +1,4 @@
+
 function RestaurantDisplay(props) {
     const makeRestaurant = (restaurant) => {
         return (
