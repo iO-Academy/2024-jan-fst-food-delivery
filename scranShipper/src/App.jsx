@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import DisplayHomepage from './DisplayHomepage/index.jsx'
 import Footer from "./Footer/Index.jsx";
+import RestaurantDisplay from "./Display/RestaurantDisplay.jsx";
 
 const App = () => {
 
