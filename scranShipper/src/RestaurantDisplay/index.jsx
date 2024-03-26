@@ -12,15 +12,13 @@ const RestaurantDisplay = (props) => {
         return (
             <button className="col-12 p-2 m-2 col-sm-2 btn btn-outline-primary fs-3" key={restaurant.name}
                 onClick={() => {
-                    setHidden(!hidden)
+                    setHidden(!hidden);
                     setRestaurant(restaurant.id)
                 }}> {restaurant.name} </button>
         )
     }
     return (
         <>
-
-            {!hidden && props.restaurantList.map(makeRestaurant)}
             <div className='menuWhole'>
             {hidden && <RestaurantMenu restaurantId={restaurant}/>}
             </div>
@@ -29,9 +27,6 @@ const RestaurantDisplay = (props) => {
                     {!hidden && props.restaurantList.map(makeRestaurant)}
                 </div>
             </div>
-
-            {hidden && <RestaurantMenu restaurantId={restaurant.id}/>}
-            {hidden && <button onClick={() => setHidden(!hidden)}>Back</button>}
         </>
     )
 }

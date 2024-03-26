@@ -7,9 +7,6 @@ import RestaurantDisplay from "./RestaurantDisplay/index.jsx";
 const App = () => {
 
     const [restaurants, assignRestaurants] = useState([]);
-    useEffect(() => {
-        fetchRestaurants()
-    }, []);
 
     const fetchRestaurants = () => {
         fetch('https://food-delivery-api.dev.io-academy.uk/restaurants').then(response => {
@@ -18,6 +15,10 @@ const App = () => {
             assignRestaurants(data);
         })
     }
+
+    useEffect(() => {
+        fetchRestaurants()
+    }, []);
 
     return (
         <>

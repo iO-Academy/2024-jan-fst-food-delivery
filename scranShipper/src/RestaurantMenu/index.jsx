@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import './style.css'
 const RestaurantMenu = (props) => {
 
+    console.log(`this is the rest prop from restuarant menu ${props.restaurantId}`);
     const [menus, getMenu] = useState([]);
     const fetchMenus = (id) => {
         fetch('https://food-delivery-api.dev.io-academy.uk/restaurants/' + id).then(response => {
