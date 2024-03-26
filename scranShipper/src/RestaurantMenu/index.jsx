@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import './style.css'
+import Basket from "../Basket/Basket.jsx";
 const RestaurantMenu = (props) => {
 
     console.log(`this is the rest prop from restuarant menu ${props.restaurantId}`);
@@ -40,6 +41,7 @@ const RestaurantMenu = (props) => {
     return (
         <>
             {menus.map(displayMenu)}
+            <Basket/>
         </>
     )}
 
