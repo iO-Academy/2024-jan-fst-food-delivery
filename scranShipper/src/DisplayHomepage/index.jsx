@@ -5,7 +5,7 @@ const DisplayHomepage = () => {
     return (
         <>
             <div className="container shadow">
-                <h1 className="col-12 text-center p-3 text-sm-start fs-3"><em className="text-primary">Scran</em>Shippers
+                <h1 className="col-12 text-center text-sm-start p-3 fs-3"><em className="text-primary">Scran</em>Shippers
                 </h1>
             </div>
             <section className="container py-5 px-3 hero">

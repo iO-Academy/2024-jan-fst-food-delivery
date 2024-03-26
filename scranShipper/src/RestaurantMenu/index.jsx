@@ -42,4 +42,4 @@ const RestaurantMenu = (props) => {
         </>
     )}
 
-export default Index
+export default RestaurantMenu

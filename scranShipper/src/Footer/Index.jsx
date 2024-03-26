@@ -1,10 +1,10 @@
 const Footer = () => {
 
     return (
-        <>
+        <div className="container">
             <hr/>
-            <p className="m-2">&#169; Copyright iO Academy 2024</p>
-        </>
+            <p>&#169; Copyright iO Academy 2024</p>
+        </div>
     )
 }
 
