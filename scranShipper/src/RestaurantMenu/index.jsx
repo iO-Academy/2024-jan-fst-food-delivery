@@ -1,12 +1,8 @@
 import {useEffect, useState} from "react";
 import './style.css'
-const Index = (props) => {
+const RestaurantMenu = (props) => {
 
     const [menus, getMenu] = useState([]);
-    useEffect(() => {
-        fetchMenus(props.restaurantId)
-    }, []);
-
     const fetchMenus = (id) => {
         fetch('https://food-delivery-api.dev.io-academy.uk/restaurants/' + id).then(response => {
             return response.json();
@@ -14,6 +10,10 @@ const Index = (props) => {
             getMenu(data.foodItems);
         })
     }
+
+    useEffect(() => {
+        fetchMenus(props.restaurantId)
+    }, []);
 
     const displayMenu = (item) => {
     return (
@@ -28,9 +28,9 @@ const Index = (props) => {
             <div className='bottom'>
                 <p className='price'>£{item.price.toFixed(2)}</p>
                 <div className='buttonsAndQuantity'>
-                    <button className='button'>-</button>
+                    <button className='plusMinus'>-</button>
                     <p>1</p>
-                    <button className='button'>+</button>
+                    <button className='plusMinus'>+</button>
                 </div>
             </div>
     </div>
@@ -39,7 +39,7 @@ const Index = (props) => {
     return (
         <>
             {menus.map(displayMenu)}
-    </>
+        </>
     )}
 
 export default Index

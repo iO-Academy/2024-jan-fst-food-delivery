@@ -1,18 +1,18 @@
 import {useState} from 'react';
 import RestaurantMenu from "../RestaurantMenu/index.jsx";
-import './style.css'
+import './style.css';
 
 const RestaurantDisplay = (props) => {
 
     const [hidden, setHidden] = useState(false);
-    const [restaurant, setRestaurant] =useState("")
+    const [restaurant, setRestaurant] = useState("")
 
     const makeRestaurant = (restaurant) => {
 
         return (
         <button onClick={() => {
-            setHidden(!hidden)
-            setRestaurant(restaurant.id)
+            setHidden(!hidden);
+            setRestaurant(restaurant.id);
         }}> {restaurant.name} </button>
         )
     }
