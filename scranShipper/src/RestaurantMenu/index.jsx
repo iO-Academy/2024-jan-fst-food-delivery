@@ -29,22 +29,26 @@ const RestaurantMenu = (props) => {
         }
     };
 
+    useEffect(() => {
+        fetchMenus(props.restaurantId)
+    }, []);
+
     const displayMenu = (item) => {
         return (
             <div className='menuItem' key={item.foodName}>
                 <h3 className='name'>{item.foodName}</h3>
                 <div className='info'>
-                    <p className='calories'>Calories: {item.calories}</p>
+                    {item.calories &&  <p className='calories'>Calories: {item.calories}</p>}
                     {item.foodType && <p className='type'>Food Type: {item.foodType}</p>}
                     {item.sideItem && <p className='isSide'>Side</p>}
                     {item.breakfastItem && <p className='isBreakfast'>Breakfast</p>}
                 </div>
                 <div className='bottom'>
-                    <p className='price'>£{item.price}</p>
+                    <p className='price'>£{item.price.toFixed(2)}</p>
                     <div className='buttonsAndQuantity'>
-                        <button className='button' onClick={() => updateOrder(item.foodName, 1)}>+</button>
+                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, -1)}>-</button>
                         <p>{order[item.foodName] || 0}</p>
-                        <button className='button' onClick={() => updateOrder(item.foodName, -1)}>-</button>
+                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, 1)}>+</button>
                     </div>
                 </div>
             </div>
