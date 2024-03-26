@@ -1,14 +1,17 @@
 import {useState} from 'react';
+import RestaurantMenu from "../RestaurantMenu/index.jsx";
 
 const RestaurantDisplay = (props) => {
 
     const [hidden, setHidden] = useState(false);
+    const [restaurant, setRestaurant] =useState("")
 
     const makeRestaurant = (restaurant) => {
 
         return (
         <button onClick={() => {
             setHidden(!hidden)
+            setRestaurant(restaurant.id)
         }}> {restaurant.name} </button>
         )
     }
@@ -16,7 +19,9 @@ const RestaurantDisplay = (props) => {
     return (
         <>
             {!hidden && props.restaurantList.map(makeRestaurant)}
-            {hidden && <RestaurantMenu restaurantId={restaurant.id}/>}
+            <div className='menuWhole'>
+            {hidden && <RestaurantMenu restaurantId={restaurant}/>}
+            </div>
             {hidden && <button onClick={() => setHidden(!hidden)}>Back</button>}
         </>
     )
