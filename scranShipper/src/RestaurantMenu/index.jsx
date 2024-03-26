@@ -18,10 +18,10 @@ const RestaurantMenu = (props) => {
 
     const displayMenu = (item) => {
     return (
-        <div className='menuItem'>
+        <div className='menuItem' key={item.foodName}>
             <h3 className='name'>{item.foodName}</h3>
             <div className='info'>
-            <p className='calories'>Calories: {item.calories}</p>
+                {item.calories &&  <p className='calories'>Calories: {item.calories}</p>}
                 {item.foodType && <p className='type'>Food Type: {item.foodType}</p>}
                 {item.sideItem && <p className='isSide'>Side</p>}
                 {item.breakfastItem && <p className='isBreakfast'>Breakfast</p>}
