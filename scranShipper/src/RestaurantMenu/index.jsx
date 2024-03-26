@@ -26,11 +26,11 @@ const Index = (props) => {
                 {item.breakfastItem && <p className='isBreakfast'>Breakfast</p>}
             </div>
             <div className='bottom'>
-                <p className='price'>£{item.price}</p>
+                <p className='price'>£{item.price.toFixed(2)}</p>
                 <div className='buttonsAndQuantity'>
-                    <button className='button'>+</button>
-                    <p>1</p>
                     <button className='button'>-</button>
+                    <p>1</p>
+                    <button className='button'>+</button>
                 </div>
             </div>
     </div>
