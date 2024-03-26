@@ -27,6 +27,7 @@ const RestaurantDisplay = (props) => {
                     {!hidden && props.restaurantList.map(makeRestaurant)}
                 </div>
             </div>
+            {hidden && <button onClick={() => setHidden(!hidden)}>Back</button>}
         </>
     )
 }
