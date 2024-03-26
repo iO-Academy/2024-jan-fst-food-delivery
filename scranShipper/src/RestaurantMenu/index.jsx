@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import './style.css'
 
-const Index = (props) => {
+const RestaurantMenu = (props) => {
     const [menus, setMenus] = useState([]);
     const [order, setOrder] = useState({});
 
@@ -17,6 +17,9 @@ const Index = (props) => {
             });
     };
 
+    //First checks if foodItem exists in the array and is >= 0 and is valid for subtraction
+    //It then creates a temporary copy of the order array as prevOrder
+    //It then updates the item corresponding to foodItem with the quantity variable
     const updateOrder = (foodItem, quantity) => {
         if(!(quantity < 0 && (order[foodItem] === 0 || order[foodItem] === undefined))){
             setOrder(prevOrder => ({
@@ -55,4 +58,4 @@ const Index = (props) => {
     );
 };
 
-export default Index;
+export default RestaurantMenu;
