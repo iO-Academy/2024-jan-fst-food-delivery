@@ -28,9 +28,9 @@ const Index = (props) => {
             <div className='bottom'>
                 <p className='price'>£{item.price}</p>
                 <div className='buttonsAndQuantity'>
-                    <button className='button'>+</button>
-                    <p>1</p>
                     <button className='button'>-</button>
+                    <p>1</p>
+                    <button className='button'>+</button>
                 </div>
             </div>
     </div>
