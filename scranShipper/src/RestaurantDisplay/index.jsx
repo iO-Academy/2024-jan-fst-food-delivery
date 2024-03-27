@@ -1,7 +1,6 @@
 
 import {useState} from 'react';
 import RestaurantMenu from "../RestaurantMenu/index.jsx";
-import './style.css';
 
 const RestaurantDisplay = (props) => {
 

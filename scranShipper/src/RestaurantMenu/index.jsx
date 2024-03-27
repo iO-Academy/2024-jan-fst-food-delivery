@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import './style.css'
 import Basket from "../Basket/Basket.jsx";
 const RestaurantMenu = (props) => {
 
@@ -22,17 +21,18 @@ const RestaurantMenu = (props) => {
         <div className=' d-flex flex-column border border-primary rounded justify-content-between m-3 col-md-3 p-3 col-12' key={item.foodName}>
             <h3 className='fs-4'>{item.foodName}</h3>
             <div className=' container row d-flex'>
-                {item.calories &&  <p className='rounded calories object-fit-scale text-no-wrap w-auto fs-6'>Calories: {item.calories}</p>}
+                {item.calories &&  <p className='rounded calories text-white bg-success object-fit-scale text-no-wrap w-auto fs-6'>Calories: {item.calories}</p>}
                 {item.foodType && <p className='rounded text-white bg-primary text-no-wrap w-auto fs-6'>Food Type: {item.foodType}</p>}
                 {item.sideItem && <p className='rounded bg-warning-subtle text-no-wrap w-auto fs-6'>Side</p>}
                 {item.breakfastItem && <p className='rounded text-white bg-danger-subtle text-no-wrap w-auto'>Breakfast</p>}
             </div>
-            <div className='d-flex justify-content-between align-items-end'>
-                <p className='col-6 fw-bold'>£{item.price.toFixed(2)}</p>
-                <div className='d-flex gap-1'>
-                    <button className='col-1 px-3 btn btn-primary d-flex justify-content-center'>-</button>
-                    <p className='col-1'>1</p>
-                    <button className='col-1 px-3 btn btn-primary d-flex justify-content-center'>+</button>
+            <div className='d-flex justify-content-between align-items-center'>
+                <p className='col-6 fw-bold align-self-end'>£{item.price.toFixed(2)}</p>
+
+                <div className='d-flex gap-2 align-items-center'>
+                    <button className='col-1 px-2 w-auto btn btn-primary d-flex m-1 justify-content-center'>-</button>
+                    <p className='col-1 text-center m-0'>1</p>
+                    <button className='col-1 px-2 btn w-auto btn-primary d-flex m-1 justify-content-center'>+</button>
                 </div>
 
             </div>
