@@ -11,15 +11,14 @@ const Basket = () => {
                {
                    method: 'POST',
                    body: JSON.stringify({
-                       "items": [{"name": "Steak Bowl", "price": 12.30, "qty": 1}],
-                       "total": 12.30
+                       "items": [],
+                       "total": 0
                    }), headers: {
                        'content-type': 'application/json'
                    }
                })
-           const orderJson = response.json();
+           const orderJson = await response.json();
            setOrderState(orderJson);
-           console.log(orderState)
        }
 
 useEffect(() => {
