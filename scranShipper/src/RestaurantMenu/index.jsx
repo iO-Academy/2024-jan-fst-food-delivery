@@ -24,7 +24,7 @@ const RestaurantMenu = (props) => {
                 {item.calories &&  <p className='rounded calories text-white bg-success object-fit-scale text-no-wrap w-auto fs-6'>Calories: {item.calories}</p>}
                 {item.foodType && <p className='rounded text-white bg-primary text-no-wrap w-auto fs-6'>Food Type: {item.foodType}</p>}
                 {item.sideItem && <p className='rounded bg-warning-subtle text-no-wrap w-auto fs-6'>Side</p>}
-                {item.breakfastItem && <p className='rounded text-white bg-danger-subtle text-no-wrap w-auto'>Breakfast</p>}
+                {item.breakfastItem && <p className='rounded text-white bg-danger text-no-wrap w-auto'>Breakfast</p>}
             </div>
             <div className='d-flex justify-content-between align-items-center'>
                 <p className='col-6 fw-bold align-self-end'>£{item.price.toFixed(2)}</p>
