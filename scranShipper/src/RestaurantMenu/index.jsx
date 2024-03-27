@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import Basket from "../Basket/Index.jsx";
-import UpdateOrder from "../UpdateOrder/Index.jsx";
+import Basket from "../Basket/index.jsx";
+import UpdateOrder from "../UpdateOrder/index.jsx";
 
 const RestaurantMenu = (props) => {
     const [menus, setMenus] = useState([]);
@@ -21,10 +21,10 @@ const RestaurantMenu = (props) => {
     const displayMenu = (item) => {
         return (
             <div
-                className=' d-flex flex-column border border-primary rounded justify-content-between m-3 col-md-3 p-3 col-12'
+                className='d-flex flex-column border border-primary rounded justify-content-between m-3 col-md-3 p-3 col-12'
                 key={item.foodName}>
                 <h3 className='fs-4'>{item.foodName}</h3>
-                <div className=' container row d-flex'>
+                <div className='container row d-flex'>
                     {item.calories &&
                         <p className='rounded calories text-white bg-success object-fit-scale text-no-wrap w-auto fs-6'>Calories: {item.calories}</p>}
                     {item.foodType && <p className='rounded text-white bg-primary text-no-wrap w-auto fs-6'>Food

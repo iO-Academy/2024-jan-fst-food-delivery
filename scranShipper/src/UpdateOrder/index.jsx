@@ -1,4 +1,3 @@
-import UpdateOrderArray from '../UpdateOrderArray/Index.jsx'
 import {useState} from "react";
 
 const UpdateOrder = (props) => {
