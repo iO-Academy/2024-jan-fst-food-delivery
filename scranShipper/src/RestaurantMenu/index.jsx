@@ -22,14 +22,29 @@ const RestaurantMenu = (props) => {
     //First checks if foodItem exists in the array and is >= 0 and is valid for subtraction
     //It then creates a temporary copy of the order array as prevOrder
     //It then updates the item corresponding to foodItem with the quantity variable
-    const updateOrder = (foodItem, quantity) => {
-        if(!(quantity < 0 && (order[foodItem] === 0 || order[foodItem] === undefined))){
-            setOrder(prevOrder => ({
+    const updateOrder = (foodItem, quantity, price) => {
+
+        if(!(quantity < 0 && (order[foodItem] === 0 || order[foodItem] === undefined))) {
+
+            setOrder(prevOrder => {
+            const updatedQuantity = (prevOrder[foodItem] || 0) + quantity;
+            let updatedFoodPrice = prevOrder['foodPrice'] || 0;
+
+            if (quantity === -1) {
+                updatedFoodPrice -= price; // Subtract price if quantity is -1
+            } else {
+                updatedFoodPrice += price * quantity; // Add price multiplied by quantity
+            }
+
+            return {
                 ...prevOrder,
-                [foodItem]: (prevOrder[foodItem] || 0) + quantity
-            }));
+                [foodItem]: updatedQuantity,
+                ['foodPrice']: updatedFoodPrice
+            };
+        });
         }
-    };
+            console.log(order)
+    }
 
     useEffect(() => {
         fetchMenus(props.restaurantId)
@@ -49,9 +64,9 @@ const RestaurantMenu = (props) => {
                 <div className='bottom'>
                     <p className='price'>£{item.price.toFixed(2)}</p>
                     <div className='buttonsAndQuantity'>
-                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, -1)}>-</button>
+                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, -1, item.price.toFixed(2))}>-</button>
                         <p>{order[item.foodName] || 0}</p>
-                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, 1)}>+</button>
+                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, 1, item.price.toFixed(2))}>+</button>
                     </div>
                 </div>
             </div>
@@ -63,8 +78,9 @@ const RestaurantMenu = (props) => {
             <div className='col-lg-8 col-12'>
                 {menus.map(displayMenu)}
             </div>
-            <Basket/>
+            <Basket order={order} updateOrder={updateOrder} menu={menus}/>
         </div>
-    )}
+    )
+};
 
 export default RestaurantMenu;
