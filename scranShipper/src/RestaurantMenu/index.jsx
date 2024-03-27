@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import './style.css'
 
+import Basket from "../Basket/Basket.jsx";
+
 const RestaurantMenu = (props) => {
     const [menus, setMenus] = useState([]);
     const [order, setOrder] = useState({});
@@ -34,6 +36,7 @@ const RestaurantMenu = (props) => {
     }, []);
 
     const displayMenu = (item) => {
+
         return (
             <div className='menuItem' key={item.foodName}>
                 <h3 className='name'>{item.foodName}</h3>
@@ -56,10 +59,12 @@ const RestaurantMenu = (props) => {
     };
 
     return (
-        <>
-            {menus.map(displayMenu)}
-        </>
-    );
-};
+        <div className='container'>
+            <div className='col-lg-8 col-12'>
+                {menus.map(displayMenu)}
+            </div>
+            <Basket/>
+        </div>
+    )}
 
 export default RestaurantMenu;
