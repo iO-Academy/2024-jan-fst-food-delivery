@@ -1,46 +1,48 @@
 import {useEffect, useState} from "react";
-import './style.css'
-const RestaurantMenu = (props) => {
+import Basket from "../Basket/index.jsx";
+import UpdateOrder from "../UpdateOrder/index.jsx";
 
-    console.log(`this is the rest prop from restuarant menu ${props.restaurantId}`);
-    const [menus, getMenu] = useState([]);
+const RestaurantMenu = (props) => {
+    const [menus, setMenus] = useState([]);
+
+
     const fetchMenus = (id) => {
-        fetch('https://food-delivery-api.dev.io-academy.uk/restaurants/' + id).then(response => {
-            return response.json();
-        }).then((data) => {
-            getMenu(data.foodItems);
-        })
-    }
+        fetch('https://food-delivery-api.dev.io-academy.uk/restaurants/' + id)
+            .then(response => response.json())
+            .then(data => {
+                setMenus(data.foodItems);
+            });
+    };
 
     useEffect(() => {
-        fetchMenus(props.restaurantId)
+        fetchMenus(props.restaurantId);
     }, []);
 
     const displayMenu = (item) => {
-    return (
-        <div className='menuItem' key={item.foodName}>
-            <h3 className='name'>{item.foodName}</h3>
-            <div className='info'>
-                {item.calories &&  <p className='calories'>Calories: {item.calories}</p>}
-                {item.foodType && <p className='type'>Food Type: {item.foodType}</p>}
-                {item.sideItem && <p className='isSide'>Side</p>}
-                {item.breakfastItem && <p className='isBreakfast'>Breakfast</p>}
-            </div>
-            <div className='bottom'>
-                <p className='price'>£{item.price.toFixed(2)}</p>
-                <div className='buttonsAndQuantity'>
-                    <button className='plusMinus'>-</button>
-                    <p>1</p>
-                    <button className='plusMinus'>+</button>
+        return (
+            <div className='d-flex flex-column border border-primary rounded justify-content-between m-3 col-md-3 p-3 col-12' key={item.foodName}>
+                <h3 className='fs-4'>{item.foodName}</h3>
+                <div className='container row d-flex'>
+                    {item.calories &&
+                        <p className='rounded calories text-white bg-success object-fit-scale text-no-wrap w-auto fs-6'>Calories: {item.calories}</p>}
+                    {item.foodType && <p className='rounded text-white bg-primary text-no-wrap w-auto fs-6'>Food
+                        Type: {item.foodType}</p>}
+                    {item.sideItem && <p className='rounded bg-warning-subtle text-no-wrap w-auto fs-6'>Side</p>}
+                    {item.breakfastItem &&
+                        <p className='rounded text-white bg-danger text-no-wrap w-auto'>Breakfast</p>}
                 </div>
+                <UpdateOrder price={item.price} foodName={item.foodName}/>
             </div>
-    </div>
-    )}
-
+        )
+    }
     return (
-        <>
-            {menus.map(displayMenu)}
-        </>
-    )}
+        <div className='m-3 container-fluid row'>
+            <div className='row justify-content-evenly col-md-9 col-12'>
+                {menus.map(displayMenu)}
+            </div>
+            <Basket/>
+        </div>
+    )
+}
 
-export default RestaurantMenu
+export default RestaurantMenu;
