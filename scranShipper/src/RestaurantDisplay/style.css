@@ -6,11 +6,19 @@
 /*    align-items: flex-start;*/
 /*}*/
 
-/*@media screen and (max-width: 1000px) {*/
-/*    .menuWhole {*/
-/*        width: 100%;*/
-/*        flex-direction: row;*/
-/*        !*flex-wrap: wrap;*!*/
-/*        justify-content: flex-start;*/
-/*    }*/
-/*}*/
+
+.backButton {
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 3px;
+}
+
+@media screen and (max-width: 1000px) {
+    .menuWhole {
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
