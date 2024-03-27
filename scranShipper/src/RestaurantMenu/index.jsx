@@ -19,32 +19,35 @@ const RestaurantMenu = (props) => {
 
     const displayMenu = (item) => {
     return (
-        <div className='menuItem container col-lg-4 col-sm-12' key={item.foodName}>
-            <h3 className='name'>{item.foodName}</h3>
-            <div className='info'>
-                {item.calories &&  <p className='calories'>Calories: {item.calories}</p>}
-                {item.foodType && <p className='type'>Food Type: {item.foodType}</p>}
-                {item.sideItem && <p className='isSide'>Side</p>}
-                {item.breakfastItem && <p className='isBreakfast'>Breakfast</p>}
+        <div className=' d-flex flex-column border border-primary rounded justify-content-between m-3 col-md-3 p-3 col-12' key={item.foodName}>
+            <h3 className='fs-4'>{item.foodName}</h3>
+            <div className=' container row d-flex'>
+                {item.calories &&  <p className='rounded calories object-fit-scale text-no-wrap w-auto fs-6'>Calories: {item.calories}</p>}
+                {item.foodType && <p className='rounded text-white bg-primary text-no-wrap w-auto fs-6'>Food Type: {item.foodType}</p>}
+                {item.sideItem && <p className='rounded bg-warning-subtle text-no-wrap w-auto fs-6'>Side</p>}
+                {item.breakfastItem && <p className='rounded text-white bg-danger-subtle text-no-wrap w-auto'>Breakfast</p>}
             </div>
-            <div className='bottom'>
-                <p className='price'>£{item.price.toFixed(2)}</p>
-                <div className='buttonsAndQuantity'>
-                    <button className='plusMinus'>-</button>
-                    <p>1</p>
-                    <button className='plusMinus'>+</button>
+            <div className='d-flex justify-content-between align-items-end'>
+                <p className='col-6 fw-bold'>£{item.price.toFixed(2)}</p>
+                <div className='d-flex gap-1'>
+                    <button className='col-1 px-3 btn btn-primary d-flex justify-content-center'>-</button>
+                    <p className='col-1'>1</p>
+                    <button className='col-1 px-3 btn btn-primary d-flex justify-content-center'>+</button>
                 </div>
+
             </div>
-    </div>
-    )}
+        </div>
+    )
+    }
 
     return (
-        <div className='container'>
-            <div className='col-lg-8 col-12'>
+        <div className='m-3 container-fluid row'>
+            <div className='row justify-content-evenly col-md-9 col-12'>
                 {menus.map(displayMenu)}
             </div>
             <Basket/>
         </div>
-    )}
+    )
+}
 
 export default RestaurantMenu

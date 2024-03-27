@@ -12,7 +12,8 @@ const Basket = () => {
     }
 
     return (
-        <div className='col-12 col-lg-4 p-5 fs-5 bg-body-secondary'>
+        <div className='col-md-3'>
+            <div className="bg-secondary-subtle p-4 rounded">
             <h3 className='text-primary'><span className="material-symbols-outlined">shopping_cart</span> Order</h3>
             <div className='d-flex justify-content-between py-3'>
                 <p className='col-9 m-0 fw-bold'>Chicken Sandwich</p>
@@ -21,22 +22,23 @@ const Basket = () => {
                 <button className='col-1 btn btn-primary'>+</button>
             </div>
             <div className='d-flex justify-content-between  py-1'>
-                <p className='col-11'>Sub-total:</p>
+                <p className='col-10'>Sub-total:</p>
                 <p className='col-2'>£17.99</p>
             </div>
             <div className='d-flex justify-content-between  py-1'>
-                <p className='col-11'>Delivery-fee:</p>
+                <p className='col-10'>Delivery-fee:</p>
                 <p className='col-2'>£0.99</p>
             </div>
             <div className='d-flex justify-content-between  py-1'>
-                <p className='col-11'>Service fee:</p>
+                <p className='col-10'>Service fee:</p>
                 <p className='col-2'>£1.50</p>
             </div>
             <div className='d-flex justify-content-between  py-1'>
-                <p className='col-11 fw-bold'>Total:</p>
+                <p className='col-10 fw-bold'>Total:</p>
                 <p className='col-2 fw-bold'>£20.48</p>
             </div>
-            <button className=' col-4 p-3 btn btn-success fs-3'>Place Order</button>
+            <button className=' col-7 p-3 btn btn-success fs-3'>Place Order</button>
+            </div>
         </div>
     )
 }
