@@ -1,4 +1,4 @@
-import BasketItem from '../BasketItem/Index.jsx'
+import BasketItem from '../BasketItem/index.jsx'
 import DisplayFees from "../DisplayFees/index.jsx";
 
 const Basket = () => {
