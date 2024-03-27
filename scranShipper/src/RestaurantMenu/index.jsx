@@ -28,7 +28,7 @@ const RestaurantMenu = (props) => {
 
             setOrder(prevOrder => {
             const updatedQuantity = (prevOrder[foodItem] || 0) + quantity;
-            let updatedFoodPrice = prevOrder['foodPrice'] || 0;
+            let updatedFoodPrice = parseFloat(prevOrder['foodPrice']) || 0.0;
 
             if (quantity === -1) {
                 updatedFoodPrice -= price; // Subtract price if quantity is -1
@@ -39,7 +39,7 @@ const RestaurantMenu = (props) => {
             return {
                 ...prevOrder,
                 [foodItem]: updatedQuantity,
-                ['foodPrice']: updatedFoodPrice
+                ['foodPrice']: updatedFoodPrice.toFixed(2)
             };
         });
         }
@@ -64,9 +64,9 @@ const RestaurantMenu = (props) => {
                 <div className='bottom'>
                     <p className='price'>£{item.price.toFixed(2)}</p>
                     <div className='buttonsAndQuantity'>
-                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, -1, item.price.toFixed(2))}>-</button>
+                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, -1, item.price)}>-</button>
                         <p>{order[item.foodName] || 0}</p>
-                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, 1, item.price.toFixed(2))}>+</button>
+                        <button className='plusMinus' onClick={() => updateOrder(item.foodName, 1, item.price)}>+</button>
                     </div>
                 </div>
             </div>

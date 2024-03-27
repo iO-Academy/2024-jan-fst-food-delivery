@@ -1,5 +1,5 @@
+import BasketItem from "./BasketItem/index.jsx";
 
-import updateOrder from "../RestaurantMenu/index.jsx";
 const Basket = (props) => {
 
     const { menu } = props
@@ -11,7 +11,7 @@ const Basket = (props) => {
        let itemPrice = 0;
 
         for (let key in props.order) {
-            if (key !== 'foodPrice') {
+            if (key !== 'foodPrice' && props.order[key] !== 0) {
 
                 for (let item of menu) {
                     if (item.foodName === key) {
@@ -20,16 +20,23 @@ const Basket = (props) => {
                 }
 
                 orderArray.push(
-                    <div className='d-flex justify-content-between py-3'>
-                        <p className='col-9 m-0 fw-bold'>{key}</p>
-                        <button className='col-1 btn btn-primary' onClick={() => updateOrder(key, -1, itemPrice)}>-</button>
-                        <p className='col-1 text-center m-0'>{props.order[key]}</p>
-                        <button className='col-1 btn btn-primary'  onClick={() => updateOrder(key, +1, itemPrice)}>+</button>
-                    </div>
+                    <BasketItem foodItem={key} itemPrice={itemPrice} order={props.order} updateOrder={updateOrder}/>
                 )
+                console.log(orderArray)
             }
         }
         return orderArray
+    }
+
+    const totalPrice = () => {
+        if (props.order.foodPrice !== undefined) {
+            return (
+                (parseFloat(props.order.foodPrice) + 0.99 + 1.50).toFixed(2)
+            )
+        }
+        return (
+            0
+        )
     }
 
 
@@ -39,7 +46,7 @@ const Basket = (props) => {
             {makeItem()}
             <div className='d-flex justify-content-between  py-1'>
                 <p className='col-11'>Sub-total:</p>
-                <p className='col-2'>£17.99</p>
+                <p className='col-2'>£{props.order.foodPrice}</p>
             </div>
             <div className='d-flex justify-content-between  py-1'>
                 <p className='col-11'>Delivery-fee:</p>
@@ -51,7 +58,7 @@ const Basket = (props) => {
             </div>
             <div className='d-flex justify-content-between  py-1'>
                 <p className='col-11 fw-bold'>Total:</p>
-                <p className='col-2 fw-bold'>£20.48</p>
+                <p className='col-2 fw-bold'>£ {totalPrice()}</p>
             </div>
             <button className=' col-4 p-3 btn btn-success fs-3'>Place Order</button>
         </div>
