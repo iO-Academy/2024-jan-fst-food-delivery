@@ -4,34 +4,34 @@ const Basket = (props) => {
 
     const { menu } = props
     const { updateOrder } = props
+    const { order } = props
 
     const makeItem = () => {
 
        let orderArray = [];
        let itemPrice = 0;
 
-        for (let key in props.order) {
-            if (key !== 'foodPrice' && props.order[key] !== 0) {
+        for (let foodItem in order) {
+            if (foodItem !== 'foodPrice' && order[foodItem] !== 0) {
 
                 for (let item of menu) {
-                    if (item.foodName === key) {
+                    if (item.foodName === foodItem) {
                         itemPrice = item.price
                     }
                 }
 
                 orderArray.push(
-                    <BasketItem foodItem={key} itemPrice={itemPrice} order={props.order} updateOrder={updateOrder}/>
+                    <BasketItem foodItem={foodItem} itemPrice={itemPrice} order={order} updateOrder={updateOrder}/>
                 )
-                console.log(orderArray)
             }
         }
         return orderArray
     }
 
     const totalPrice = () => {
-        if (props.order.foodPrice !== undefined) {
+        if (order.foodPrice !== undefined) {
             return (
-                (parseFloat(props.order.foodPrice) + 0.99 + 1.50).toFixed(2)
+                (parseFloat(order.foodPrice) + 0.99 + 1.50).toFixed(2)
             )
         }
         return (
@@ -46,7 +46,7 @@ const Basket = (props) => {
             {makeItem()}
             <div className='d-flex justify-content-between  py-1'>
                 <p className='col-11'>Sub-total:</p>
-                <p className='col-2'>£{props.order.foodPrice}</p>
+                <p className='col-2'>£{order.foodPrice}</p>
             </div>
             <div className='d-flex justify-content-between  py-1'>
                 <p className='col-11'>Delivery-fee:</p>

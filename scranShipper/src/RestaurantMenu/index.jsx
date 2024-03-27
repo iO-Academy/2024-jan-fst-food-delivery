@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import './style.css'
 
-import Basket from "../Basket/Basket.jsx";
+import Basket from "../Basket/index.jsx";
 
 const RestaurantMenu = (props) => {
     const [menus, setMenus] = useState([]);
@@ -83,4 +83,5 @@ const RestaurantMenu = (props) => {
     )
 };
 
-export default RestaurantMenu;
+export default RestaurantMenu
+
