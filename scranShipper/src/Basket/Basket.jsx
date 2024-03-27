@@ -12,7 +12,7 @@ const Basket = () => {
     }
 
     return (
-        <div className='container-fluid p-5 fs-5 bg-body-secondary'>
+        <div className='col-12 col-lg-4 p-5 fs-5 bg-body-secondary'>
             <h3 className='text-primary'><span className="material-symbols-outlined">shopping_cart</span> Order</h3>
             <div className='d-flex justify-content-between py-3'>
                 <p className='col-9 m-0 fw-bold'>Chicken Sandwich</p>

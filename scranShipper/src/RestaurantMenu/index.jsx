@@ -19,7 +19,7 @@ const RestaurantMenu = (props) => {
 
     const displayMenu = (item) => {
     return (
-        <div className='menuItem' key={item.foodName}>
+        <div className='menuItem container col-lg-4 col-sm-12' key={item.foodName}>
             <h3 className='name'>{item.foodName}</h3>
             <div className='info'>
                 {item.calories &&  <p className='calories'>Calories: {item.calories}</p>}
@@ -39,10 +39,12 @@ const RestaurantMenu = (props) => {
     )}
 
     return (
-        <>
-            {menus.map(displayMenu)}
+        <div className='container'>
+            <div className='col-lg-8 col-12'>
+                {menus.map(displayMenu)}
+            </div>
             <Basket/>
-        </>
+        </div>
     )}
 
 export default RestaurantMenu
