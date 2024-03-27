@@ -20,9 +20,7 @@ const RestaurantMenu = (props) => {
 
     const displayMenu = (item) => {
         return (
-            <div
-                className='d-flex flex-column border border-primary rounded justify-content-between m-3 col-md-3 p-3 col-12'
-                key={item.foodName}>
+            <div className='d-flex flex-column border border-primary rounded justify-content-between m-3 col-md-3 p-3 col-12' key={item.foodName}>
                 <h3 className='fs-4'>{item.foodName}</h3>
                 <div className='container row d-flex'>
                     {item.calories &&
