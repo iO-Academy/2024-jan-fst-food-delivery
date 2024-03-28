@@ -1,10 +1,10 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import BasketItem from "./BasketItem/index.jsx"
 import DisplayFees from "../DisplayFees/index.jsx"
 
 const Basket = (props) => {
 
-    const {menu, updateOrder, order} = props
+    const {menu, updateOrder, order, visible, setVisible} = props
 
     const makeItem = () => {
 
@@ -47,10 +47,8 @@ const Basket = (props) => {
                })
            const orderJson = await response.json();
            setOrderState(orderJson);
+           setVisible(!visible);
        }
-
-useEffect(() => {
-    sendOrder()},[])
 
     return (
         <div className='col-md-3'>

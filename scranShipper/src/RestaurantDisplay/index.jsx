@@ -19,7 +19,7 @@ const RestaurantDisplay = (props) => {
     return (
         <>
             <div className='menuWhole'>
-            {hidden && <RestaurantMenu restaurantId={restaurant}/>}
+            {hidden && <RestaurantMenu restaurantId={restaurant} visible={props.visible} setVisible={props.setVisible}/>}
             </div>
             <div className="container">
                 <div className="row g-col-5 justify-content-center">

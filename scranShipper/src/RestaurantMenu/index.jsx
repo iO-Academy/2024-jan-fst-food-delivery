@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react"
-import Basket from "../Basket/index.jsx"
+import {useEffect, useState} from "react";
+import Basket from "../Basket/index.jsx";
 
 const RestaurantMenu = (props) => {
     const [menus, setMenus] = useState([])
@@ -75,10 +75,9 @@ const RestaurantMenu = (props) => {
                 <div className='row justify-content-evenly col-md-9 col-12'>
                     {menus.map(displayMenu)}
                 </div>
-                <Basket order={order} updateOrder={updateOrder} menu={menus}/>
+                <Basket order={order} updateOrder={updateOrder} menu={menus} visible={props.visible} setVisible={props.setVisible}/>
             </div>
-        )
-
+    )
 }
 
 export default RestaurantMenu
