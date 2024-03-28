@@ -6,7 +6,7 @@ const DeliveryModal = ({visible, setVisible}) => {
 
     return (
         <>
-            {visible && <div className="position-absolute h-100 w-100 zindex-modal-backdrop modalBackground">
+            {visible && <div className="position-fixed h-100 w-100 zindex-modal-backdrop modalBackground">
        <div className="d-flex flex-column w-50 m-auto modal-content bg-white my-4 p-4 zindex-modal modalBody rounded">
            <br></br>
            <h3>Thank you</h3>
