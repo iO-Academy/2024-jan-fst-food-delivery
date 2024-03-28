@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 const DeliveryModal = () => {
     return (
@@ -8,7 +9,8 @@ const DeliveryModal = () => {
            <hr></hr>
            <p>The restaurant has received your order.</p>
            <p>Estimated time of arrival: 15:45</p>
-           <progress value={0.10}/>
+           <ProgressBar striped variant="info" now={20}/>
+           <br></br>
            <p>Your order is being prepared</p>
            <hr></hr>
            <button className="align-self-end btn btn-secondary w-25">Close</button>
