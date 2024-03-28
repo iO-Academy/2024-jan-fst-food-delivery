@@ -2,7 +2,7 @@ import BasketItem from '../BasketItem/index.jsx'
 import DisplayFees from "../DisplayFees/index.jsx";
 import {useState, useEffect} from "react";
 
-const Basket = () => {
+const Basket = (props) => {
 
     const [orderState, setOrderState] = useState([])
 
@@ -19,10 +19,8 @@ const Basket = () => {
                })
            const orderJson = await response.json();
            setOrderState(orderJson);
+           props.setVisible(!props.visible);
        }
-
-useEffect(() => {
-    sendOrder()},[])
 
     return (
         <div className='col-md-3'>

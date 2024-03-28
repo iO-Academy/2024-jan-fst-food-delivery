@@ -41,8 +41,7 @@ const RestaurantMenu = (props) => {
             <div className='row justify-content-evenly col-md-9 col-12'>
                 {menus.map(displayMenu)}
             </div>
-            <Basket/>
-            <DeliveryModal/>
+            <Basket visible={props.visible} setVisible={props.setVisible}/>
         </div>
     )
 }

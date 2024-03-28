@@ -3,9 +3,11 @@ import './App.css'
 import DisplayHomepage from './DisplayHomepage/index.jsx'
 import Footer from "./Footer/index.jsx";
 import RestaurantDisplay from "./RestaurantDisplay/index.jsx";
+import DeliveryModal from "./DeliveryModal/index.jsx";
 
 const App = () => {
 
+    const [visible, setVisible] = useState(false)
     const [restaurants, assignRestaurants] = useState([]);
 
     const fetchRestaurants = () => {
@@ -22,8 +24,9 @@ const App = () => {
 
     return (
         <>
+            <DeliveryModal visible={visible} setVisible={setVisible}/>
             <DisplayHomepage/>
-            <RestaurantDisplay restaurantList={restaurants}/>
+            <RestaurantDisplay restaurantList={restaurants} visible={visible} setVisible={setVisible}/>
             <Footer/>
         </>
     )
