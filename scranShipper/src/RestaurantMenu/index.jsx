@@ -1,15 +1,15 @@
-import {useEffect, useState} from "react";
-import Basket from "../Basket/index.jsx";
+import {useEffect, useState} from "react"
+import Basket from "../Basket/index.jsx"
 
 const RestaurantMenu = (props) => {
-    const [menus, setMenus] = useState([]);
+    const [menus, setMenus] = useState([])
     const [order, setOrder] = useState({})
 
     const fetchMenus = (id) => {
         fetch('https://food-delivery-api.dev.io-academy.uk/restaurants/' + id)
             .then(response => response.json())
             .then(data => {
-                setMenus(data.foodItems);
+                setMenus(data.foodItems)
             });
     };
 
@@ -21,27 +21,27 @@ const RestaurantMenu = (props) => {
         if(!(quantity < 0 && (order[foodItem] === 0 || order[foodItem] === undefined))) {
 
             setOrder(prevOrder => {
-            const updatedQuantity = (prevOrder[foodItem] || 0) + quantity;
-            let updatedFoodPrice = parseFloat(prevOrder['foodPrice']) || 0.0;
+            const updatedQuantity = (prevOrder[foodItem] || 0) + quantity
+            let updatedFoodPrice = parseFloat(prevOrder['foodPrice']) || 0.0
 
             if (quantity === -1) {
-                updatedFoodPrice -= price; // Subtract price if quantity is -1
+                updatedFoodPrice -= price // Subtract price if quantity is -1
             } else {
-                updatedFoodPrice += price * quantity; // Add price multiplied by quantity
+                updatedFoodPrice += price * quantity // Add price multiplied by quantity
             }
 
             return {
                 ...prevOrder,
                 [foodItem]: updatedQuantity,
                 ['foodPrice']: updatedFoodPrice.toFixed(2)
-            };
-        });
+            }
+        })
         }
     }
 
     useEffect(() => {
-        fetchMenus(props.restaurantId);
-    }, []);
+        fetchMenus(props.restaurantId)
+    }, [])
 
     const displayMenu = (item) => {
 
@@ -79,7 +79,7 @@ const RestaurantMenu = (props) => {
             </div>
         )
 
-};
+}
 
 export default RestaurantMenu
 

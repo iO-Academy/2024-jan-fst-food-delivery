@@ -1,17 +1,15 @@
 
-import BasketItem from "./BasketItem/index.jsx";
-import DisplayFees from "../DisplayFees/index.jsx";
+import BasketItem from "./BasketItem/index.jsx"
+import DisplayFees from "../DisplayFees/index.jsx"
 
 const Basket = (props) => {
 
-    const {menu} = props
-    const {updateOrder} = props
-    const {order} = props
+    const {menu, updateOrder, order} = props
 
     const makeItem = () => {
 
-        let orderArray = [];
-        let itemPrice = 0;
+        let orderArray = []
+        let itemPrice = 0
 
         for (let foodItem in order) {
             if (foodItem !== 'foodPrice' && order[foodItem] !== 0) {
@@ -31,15 +29,8 @@ const Basket = (props) => {
     }
 
     const totalPrice = () => {
-        if (order.foodPrice !== undefined) {
-            return (
-                (parseFloat(order.foodPrice) + 0.99 + 1.50).toFixed(2)
-            )
-        } else {
-            return 0
-        }
+        return order.foodPrice !== undefined ? (parseFloat(order.foodPrice) + 0.99 + 1.50).toFixed(2) : 0
     }
-
 
     return (
         <div className='col-md-3'>

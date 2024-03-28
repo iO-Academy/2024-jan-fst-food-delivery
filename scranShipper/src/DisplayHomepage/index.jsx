@@ -21,4 +21,4 @@ const DisplayHomepage = () => {
     )
 }
 
-export default DisplayHomepage;
+export default DisplayHomepage

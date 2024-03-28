@@ -1,17 +1,17 @@
 
-import {useState} from 'react';
-import RestaurantMenu from "../RestaurantMenu/index.jsx";
+import {useState} from 'react'
+import RestaurantMenu from "../RestaurantMenu/index.jsx"
 
 const RestaurantDisplay = (props) => {
 
-    const [hidden, setHidden] = useState(false);
+    const [hidden, setHidden] = useState(false)
     const [restaurant, setRestaurant] = useState("")
 
     const makeRestaurant = (restaurant) => {
         return (
             <button className="col-12 p-2 m-2 col-sm-2 btn btn-outline-primary fs-3" key={restaurant.name}
                 onClick={() => {
-                    setHidden(!hidden);
+                    setHidden(!hidden)
                     setRestaurant(restaurant.id)
                 }}> {restaurant.name} </button>
         )

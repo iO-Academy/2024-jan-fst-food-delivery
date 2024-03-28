@@ -1,7 +1,3 @@
-
-
-
-
 const BasketItem = (props) => {
 
     const {updateOrder} = props
