@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Basket from "../Basket/index.jsx";
 import UpdateOrder from "../UpdateOrder/index.jsx";
+import DeliveryModal from "../DeliveryModal/index.jsx";
 
 const RestaurantMenu = (props) => {
     const [menus, setMenus] = useState([]);
@@ -41,6 +42,7 @@ const RestaurantMenu = (props) => {
                 {menus.map(displayMenu)}
             </div>
             <Basket/>
+            <DeliveryModal/>
         </div>
     )
 }
