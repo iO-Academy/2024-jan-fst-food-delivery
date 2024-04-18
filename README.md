@@ -4,11 +4,6 @@ Project 4: Food delivery
 # Description
 'ScranShippers' is a team project using React and styled with Bootstrap that fetches and displays various restaurants from a provided API. You can interact with an individual restaurant and place orders.
 
-# Dependencies
-???
-??
-???
-
 # Installing
 
 Clone this repo:
@@ -29,7 +24,7 @@ From the root of this project run
 npm create vite@vitelatest
 ```
 
-follow steps from this point....???
+follow instructions from the terminal at this point
 
 then run
 
@@ -45,7 +40,7 @@ Max Hamilton - @maxeh987
 Liz Hartley - @elizabeth-hartley  
 Izayah Jordan - @2naCan  
 Sara Berggren - @AnnaSaraBerggren  
-Safia ?? - @SafiaFx  
+Safia Fareed - @SafiaFx  
 
 # Links
 Live App - LINK???
