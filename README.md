@@ -6,6 +6,8 @@ Project 4: Food delivery
 
 # Installing
 
+Ensure you docker image is correct for this app by following the guide on [this](https://github.com/iO-Academy/docker-image) repo:
+
 Clone this repo:
 
 ```
@@ -18,13 +20,11 @@ Navigate to the newly created directory
 cd 2024-jan-fst-food-delivery
 ```
 
-From the root of this project run
+From the root of this project run this command and follow instructions in the terminal
 
 ```
 npm create vite@vitelatest
 ```
-
-follow instructions from the terminal at this point
 
 then run
 
