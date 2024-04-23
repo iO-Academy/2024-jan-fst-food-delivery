@@ -43,5 +43,5 @@ Sara Berggren - [@AnnaSaraBerggren](https://github.com/AnnaSaraBerggren)
 Safia Fareed - [@SafiaFx](https://github.com/SafiaFx)  
 
 # Links
-Live App - LINK???
+Live App - [LINK](https://io-academy.github.io/2024-jan-fst-food-delivery/)
  
